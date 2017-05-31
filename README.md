@@ -1,8 +1,8 @@
-#Paoding分词器基于Lucene4.x
+# Paoding分词器基于Lucene6.5.x
 
 原项目见 https://code.google.com/p/paoding/
 
-#Paoding Analysis摘要
+# Paoding Analysis摘要
 
 Paoding's Knives 中文分词具有极 高效率 和 高扩展性 。引入隐喻，采用完全的面向对象设计，构思先进。
 
@@ -28,7 +28,7 @@ Paoding's Knives 中文分词具有极 高效率 和 高扩展性 。引入隐�
     }
 
 
-#编译说明
+# 编译说明
 
 项目默认可以使用Maven直接编译.
 
@@ -42,7 +42,7 @@ Paoding's Knives 中文分词具有极 高效率 和 高扩展性 。引入隐�
     mvn dependency：copy-dependencies
 
 
-#Solr4.x使用说明
+# Solr4.x使用说明
 
 Solr 4.x以上可以直接配置Lucene的Analyzer.
 配置如:
