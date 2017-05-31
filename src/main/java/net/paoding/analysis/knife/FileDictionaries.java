@@ -312,7 +312,7 @@ public class FileDictionaries implements Dictionaries {
 	
 	/**
 	 * 
-	 * @param dicName
+	 * @param dicPath
 	 */
 	protected synchronized void refreshDicWords(String dicPath) {
 		int index = dicPath.lastIndexOf(".dic");

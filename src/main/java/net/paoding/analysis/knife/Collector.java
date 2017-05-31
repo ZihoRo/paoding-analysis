@@ -44,5 +44,5 @@ public interface Collector {
 	 * 
 	 *         
 	 */
-	public void collect(String word, int offset, int end);
+	void collect(String word, int offset, int end);
 }

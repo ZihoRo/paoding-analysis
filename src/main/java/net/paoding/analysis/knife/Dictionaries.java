@@ -36,51 +36,51 @@ public interface Dictionaries {
 	 * 
 	 * @return
 	 */
-	public Dictionary getVocabularyDictionary();
+	Dictionary getVocabularyDictionary();
 
 	/**
 	 * 姓氏字典
 	 * 
 	 * @return
 	 */
-	public Dictionary getConfucianFamilyNamesDictionary();
+	Dictionary getConfucianFamilyNamesDictionary();
 
 	/**
 	 * 忽略的词语
 	 * 
 	 * @return
 	 */
-	public Dictionary getNoiseCharactorsDictionary();
+	Dictionary getNoiseCharactorsDictionary();
 
 	/**
 	 * 忽略的单字
 	 * 
 	 * @return
 	 */
-	public Dictionary getNoiseWordsDictionary();
+	Dictionary getNoiseWordsDictionary();
 
 	/**
 	 * 计量单位
 	 * 
 	 * @return
 	 */
-	public Dictionary getUnitsDictionary();
+	Dictionary getUnitsDictionary();
 	
 	/**
 	 * lantin+cjk, num+cjk
 	 * @return
 	 */
-	public Dictionary getCombinatoricsDictionary();
+	Dictionary getCombinatoricsDictionary();
 	
 	/**
 	 * 
 	 * @param l
 	 */
-	public void startDetecting(int interval, DifferenceListener l);
+	void startDetecting(int interval, DifferenceListener l);
 	
 	
-	public void stopDetecting();
+	void stopDetecting();
 	
 	
-	public abstract void setAnalyzerListener(PaodingAnalyzerListener listener);
+	void setAnalyzerListener(PaodingAnalyzerListener listener);
 }

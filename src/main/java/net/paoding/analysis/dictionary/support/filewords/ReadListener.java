@@ -24,7 +24,7 @@ package net.paoding.analysis.dictionary.support.filewords;
  * 
  */
 public interface ReadListener {
-	public boolean onFileBegin(String file);
-	public void onFileEnd(String file);
-	public void onWord(String word);
+	boolean onFileBegin(String file);
+	void onFileEnd(String file);
+	void onWord(String word);
 }

@@ -1,100 +1,90 @@
 package net.paoding.analysis.analyzer;
 
-import java.io.Reader;
-
 import net.paoding.analysis.analyzer.impl.MaxWordLengthTokenCollector;
 import net.paoding.analysis.analyzer.impl.MostWordsTokenCollector;
 import net.paoding.analysis.knife.Knife;
-
 import org.apache.lucene.analysis.Analyzer;
 
 
 /**
- *
- *
  * @author ZhenQin, linliangyi
  */
 public class PaodingAnalyzerBean extends Analyzer {
 
-	// -------------------------------------------------
+    // -------------------------------------------------
 
-	/**
-	 * 最多切分
-	 */
-	public static final int MOST_WORDS_MODE = 1;
+    /**
+     * 最多切分
+     */
+    public static final int MOST_WORDS_MODE = 1;
 
-	/**
-	 * 按最大切分
-	 */
-	public static final int MAX_WORD_LENGTH_MODE = 2;
+    /**
+     * 按最大切分
+     */
+    public static final int MAX_WORD_LENGTH_MODE = 2;
 
-	// -------------------------------------------------
-	/**
-	 * 用于向PaodingTokenizer提供，分解文本字符
-	 * 
-	 * @see net.paoding.analysis.analyzer.PaodingTokenizer#incrementToken()
-	 * 
-	 */
-	private Knife knife;
+    // -------------------------------------------------
+    /**
+     * 用于向PaodingTokenizer提供，分解文本字符
+     *
+     * @see net.paoding.analysis.analyzer.PaodingTokenizer#incrementToken()
+     */
+    private Knife knife;
 
-	/**
-	 * @see #MOST_WORDS_MODE
-	 * @see #MAX_WORD_LENGTH_MODE
-	 */
-	private int mode = MOST_WORDS_MODE;
+    /**
+     * @see #MOST_WORDS_MODE
+     * @see #MAX_WORD_LENGTH_MODE
+     */
+    private int mode = MOST_WORDS_MODE;
 
-	/**
-	 * 反射执行默认构造方法
-	 */
-	private Class<?> modeClass;
+    /**
+     * 反射执行默认构造方法
+     */
+    private Class<?> modeClass;
 
-	// -------------------------------------------------
+    // -------------------------------------------------
 
-	public PaodingAnalyzerBean() {
-	}
+    public PaodingAnalyzerBean() {
+    }
 
-	/**
-	 * @see #setKnife(Knife)
-	 * @param knife
-	 */
-	public PaodingAnalyzerBean(Knife knife) {
-		this.knife = knife;
-	}
+    /**
+     * @param knife
+     * @see #setKnife(Knife)
+     */
+    public PaodingAnalyzerBean(Knife knife) {
+        this.knife = knife;
+    }
 
-	/**
-	 * @see #setKnife(Knife)
-	 * @see #setMode(int)
-	 * @param knife
-	 * @param mode
-	 */
-	public PaodingAnalyzerBean(Knife knife, int mode) {
-		this.knife = knife;
-		this.mode = mode;
-	}
+    /**
+     * @param knife
+     * @param mode
+     * @see #setKnife(Knife)
+     * @see #setMode(int)
+     */
+    public PaodingAnalyzerBean(Knife knife, int mode) {
+        this.knife = knife;
+        this.mode = mode;
+    }
 
-	/**
-	 * @see #setKnife(Knife)
-	 * @see #setMode(int)
-	 * @param knife
-	 * @param mode
-	 */
-	public PaodingAnalyzerBean(Knife knife, String mode) {
-		this.knife = knife;
-		this.setMode(mode);
-	}
+    /**
+     * @param knife
+     * @param mode
+     * @see #setKnife(Knife)
+     * @see #setMode(int)
+     */
+    public PaodingAnalyzerBean(Knife knife, String mode) {
+        this.knife = knife;
+        this.setMode(mode);
+    }
 
-
-	@Override
-	protected TokenStreamComponents createComponents(String fieldName, Reader reader) {
-		if (knife == null) {
-			throw new NullPointerException("knife should be set before token");
-		}
-		// PaodingTokenizer是TokenStream实现，使用knife解析reader流入的文本
-		return new TokenStreamComponents(new PaodingTokenizer(reader, 
-				knife, createTokenCollector()));
-	}
-
-
+    @Override
+    protected TokenStreamComponents createComponents(String fieldName) {
+        if (knife == null) {
+            throw new NullPointerException("knife should be set before token");
+        }
+        // PaodingTokenizer是TokenStream实现，使用knife解析reader流入的文本
+        return new TokenStreamComponents(new PaodingTokenizer(knife, createTokenCollector()));
+    }
 
     protected TokenCollector createTokenCollector() {
         if (modeClass != null) {
@@ -148,8 +138,7 @@ public class PaodingAnalyzerBean extends Analyzer {
     /**
      * 设置分析器模式类。
      *
-     * @param modeClass
-     *            TokenCollector的实现类。
+     * @param modeClass TokenCollector的实现类。
      */
     public void setModeClass(Class<?> modeClass) {
         this.modeClass = modeClass;

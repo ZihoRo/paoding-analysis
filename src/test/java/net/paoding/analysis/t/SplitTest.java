@@ -7,10 +7,7 @@ import net.paoding.analysis.knife.Paoding;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.Query;
-import org.apache.lucene.util.Version;
 import org.junit.Test;
-
-import java.io.StringReader;
 
 /**
  * <pre>
@@ -37,7 +34,6 @@ public class SplitTest {
     public void testSplitChinese() throws Exception {
         String txt = "汉文化和服装 汉文化";
         PaodingTokenizer tokenizer = new PaodingTokenizer(
-                new StringReader(txt),
                 new Paoding(),
                 new MaxWordLengthTokenCollector());
 
@@ -47,8 +43,7 @@ public class SplitTest {
 
     @Test
     public void testParse() throws Exception {
-        Query query = new QueryParser(Version.LUCENE_46,
-                "title", ANALYZER).parse("title:你吃饭被撑死了吗");
+        Query query = new QueryParser("title", ANALYZER).parse("title:你吃饭被撑死了吗");
 
         System.out.println(query);
     }

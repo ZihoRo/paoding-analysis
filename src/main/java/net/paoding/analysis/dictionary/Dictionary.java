@@ -34,7 +34,7 @@ public interface Dictionary {
 	 * 
 	 * @return
 	 */
-	public int size();
+	int size();
 
 	/**
 	 * 返回给定位置的词语
@@ -43,7 +43,7 @@ public interface Dictionary {
 	 *            0,1,2,...,size-1
 	 * @return
 	 */
-	public Word get(int index);
+	Word get(int index);
 
 	/**
 	 * 搜索词典是否收集input[offset]到input[offset+count-1]之间字符串(包含边界)的词。<br>
@@ -56,5 +56,5 @@ public interface Dictionary {
 	 * 
 	 * @see Hit
 	 */
-	public Hit search(CharSequence input, int offset, int count);
+	Hit search(CharSequence input, int offset, int count);
 }

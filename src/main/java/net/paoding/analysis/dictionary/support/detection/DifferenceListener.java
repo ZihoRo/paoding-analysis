@@ -23,5 +23,5 @@ package net.paoding.analysis.dictionary.support.detection;
  */
 public interface DifferenceListener {
 
-	public void on(Difference diff) throws Exception ;
+	void on(Difference diff) throws Exception ;
 }

@@ -88,7 +88,7 @@ public interface Knife {
 	 * @see #ASSIGNED
 	 * @see #POINT
 	 */
-	public int assignable(Beef beef, int offset, int index);
+	int assignable(Beef beef, int offset, int index);
 
 	/**
 	 * 分解词语，并将分解成的词语相关信息告知{@link Collector}接口。
@@ -115,5 +115,5 @@ public interface Knife {
 	 * 
 	 * 
 	 */
-	public int dissect(Collector collector, Beef beef, int offset);
+	int dissect(Collector collector, Beef beef, int offset);
 }

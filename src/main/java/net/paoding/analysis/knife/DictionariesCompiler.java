@@ -33,7 +33,7 @@ public interface DictionariesCompiler {
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean shouldCompile(Properties p) throws Exception;
+	boolean shouldCompile(Properties p) throws Exception;
 	
 	/**
 	 * 
@@ -42,7 +42,7 @@ public interface DictionariesCompiler {
 	 * @param p
 	 * @throws Exception
 	 */
-	public void compile(Dictionaries dictionaries, Knife knife, Properties p) throws Exception;
+	void compile(Dictionaries dictionaries, Knife knife, Properties p) throws Exception;
 	
 	/**
 	 * 
@@ -50,7 +50,7 @@ public interface DictionariesCompiler {
 	 * @return
 	 * @throws Exception
 	 */
-	public Dictionaries readCompliedDictionaries(Properties p) throws Exception;
+	Dictionaries readCompliedDictionaries(Properties p) throws Exception;
 	
 	
 }
